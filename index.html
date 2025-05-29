@@ -26,6 +26,7 @@
 </head>
 
 <body>
+    <!-- header -->
     <header class="header wrapper">
         <div class="header__nav">
             <a href="/">
@@ -64,32 +65,76 @@
                 <img src="/assets/images/icon-cart.svg" alt="Cart icon" width="22" height="20">
             </button>
             <button type="button" class="header__profile-btn">
-                <img src="/assets/images/image-avatar.png" alt="Profile Avatar" width="100" height="100">
+                <img src="/assets/images/image-avatar.png" alt="Profile Avatar">
             </button>
         </div>
     </header>
-    <main></main>
-    <footer></footer>
+    <main>
+        <!-- gallery -->
+        <section class="lightbox-gallery">
+            <div class="lightbox-gallery__display">
+                <img src="/assets/images/image-product-1.jpg" alt="product image">
+            </div>
+            <div class="lightbox-gallery__thumbnail-images">
+                <div class="lightbox-gallery__thumbnail-image">
+                    <img src="/assets/images/image-product-1-thumbnail.jpg" alt="product image">
+                </div>
+                <div class="lightbox-gallery__thumbnail-image">
+                    <img src="/assets/images/image-product-2-thumbnail.jpg" alt="product image">
+                </div>
+                <div class="lightbox-gallery__thumbnail-image">
+                    <img src="/assets/images/image-product-3-thumbnail.jpg" alt="product image">
+                </div>
+                <div class="lightbox-gallery__thumbnail-image">
+                    <img src="/assets/images/image-product-4-thumbnail.jpg" alt="product image">
+                </div>
+            </div>
+        </section>
 
-    Sneaker Company
+        <!-- content -->
+        <section class="page-content wrapper">
+            <p class="page-content__kicker">
+                Sneaker Company
+            </p>
+            <h1 class="page-content__title">
+                Fall Limited Edition Sneakers
+            </h1>
+            <p class="page-content__description">
+                These low-profile sneakers are your perfect casual wear companion. Featuring a
+                durable rubber outer sole, they'll withstand everything the weather can offer.
+            </p>
+            <section class="price">
+                <span class="final-price">$125.00</span>
+                <span class="discount">50%</span>
+                <div>
+                    <span class="original-price"><s>$250.00</s></span>
+                </div>
+            </section>
+            <section class="cart">
+                <form class="cart__quantity-form">
+                    <button type="button" class="cart__value-button" id="decrease" value="Decrease Value">
+                        <img src="/assets/images/icon-minus.svg" alt="Minus Icon">
+                    </button>
+                    <label for="number" class="visually-hidden">Quantity</label>
+                    <input type="number" class="cart__input" id="number" value="0" aria-label="Quantity" />
+                    <button type="button" class="cart__value-button" id="increase" value="Increase Value">
+                        <img src="/assets/images/icon-plus.svg" alt="Plus Icon">
+                    </button>
+                    <button type="submit" class="cart__add-to-cart-btn">
+                        <img src="/assets/images/icon-cart.svg" alt="Cart icon" width="22" height="20">
+                        Add to cart
+                    </button>
+                </form>
+            </section>
+        </section>
+    </main>
 
-    Fall Limited Edition Sneakers
-
-    These low-profile sneakers are your perfect casual wear companion. Featuring a
-    durable rubber outer sole, they'll withstand everything the weather can offer.
-
-    $125.00
-    50%
-    $250.00
-
-    0
-    Add to cart
-
-    <div class="attribution">
-        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener">Frontend
-            Mentor</a>.
-        Coded by <a href="#">Your Name Here</a>.
-    </div>
+    <footer class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener">Frontend Mentor</a>.
+        Coded by
+        <a href="https://www.frontendmentor.io/profile/adeysh">Adesh Katiya</a>.
+    </footer>
 </body>
 
 </html>
