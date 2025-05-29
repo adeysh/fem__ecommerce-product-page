@@ -1,0 +1,36 @@
+@use './functions' as *;
+
+:root {
+    /* colors */
+
+    // primary
+    --color-orange-500: hsl(26, 100%, 55%);
+    --color-orange-300: hsl(25, 100%, 94%);
+
+    // neutral
+    --color-blue-800: hsl(220, 13%, 13%);
+    --color-blue-600: hsl(219, 9%, 45%);
+    --color-blue-400: hsl(220, 14%, 75%);
+    --color-blue-200: hsl(223, 64%, 98%);
+
+    --color-white: hsl(0, 0%, 100%);
+    --color-black: hsl(0, 0%, 0%);
+
+    /* font */
+
+    // font-family
+    --ff-primary: 'Kumbh Sans', 'sans-serif';
+
+    // font-size
+    --fs-xs: #{rem(13)};
+    --fs-s: #{rem(15)};
+    --fs-body: #{rem(16)};
+    --fs-m: #{rem(20)};
+    --fs-l: #{rem(25)};
+    --fs-xl: #{rem(35)};
+    --fs-xxl: clamp(1.875rem, 1.6549295774647887rem + 0.9389671361502347vw, 2.5rem);
+
+    // font-weight
+    --fw-regular: 400;
+    --fw-bold: 700;
+}
