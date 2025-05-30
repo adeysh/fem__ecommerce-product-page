@@ -1,0 +1,48 @@
+@use '../abstracts' as a;
+
+html,
+body {
+    height: 100%;
+    scrollbar-gutter: stable;
+}
+
+body {
+    position: relative;
+    font-family: var(--ff-primary);
+    font-size: var(--fs-body);
+    background-color: var(--color-white);
+    @include a.flexbox($direction: column, $align: center, $justify: center);
+    height: auto;
+    min-block-size: 100vh;
+    line-height: 1.7;
+    // padding-block-end: a.rem(100);
+}
+
+h1 {
+    line-height: 1.1;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
