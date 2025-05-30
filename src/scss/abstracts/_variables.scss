@@ -18,6 +18,7 @@
 
     // semantic
     --color-nav-text: var(--color-blue-600);
+    --color-nav-border: var(--color-blue-400);
     --color-lightbox-bg: var(--color-black);
 
     /* font */
@@ -39,6 +40,7 @@
     --fw-bold: 700;
 
     /* spacing */
+    --space-0-5: #{rem(12)};
     --space-1: #{rem(16)};
     --space-1-5: #{rem(24)};
     --space-2: #{rem(32)};
@@ -46,8 +48,10 @@
     --space-3: #{rem(48)};
     --space-4: #{rem(64)};
     --space-5: #{rem(80)};
+    --space-5-5: #{rem(90)};
     --space-6: #{rem(96)};
     --space-7: #{rem(112)};
+    --space-7-5: #{rem(120)};
     --space-8: #{rem(128)};
     --space-9: #{rem(144)};
     --space-10: #{rem(160)};

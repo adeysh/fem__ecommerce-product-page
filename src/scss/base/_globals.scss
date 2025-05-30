@@ -11,7 +11,7 @@ body {
     font-family: var(--ff-primary);
     font-size: var(--fs-body);
     background-color: var(--color-white);
-    @include a.flexbox($direction: column, $align: center, $justify: center);
+    @include a.flexbox($direction: column, $align: center, $gap: var(--space-5-5));
     height: auto;
     min-block-size: 100vh;
     line-height: 1.7;

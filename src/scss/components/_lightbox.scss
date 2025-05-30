@@ -1,5 +1,25 @@
 @use '../abstracts' as a;
 
+.lightbox-gallery {
+    @include a.flexbox($direction: column, $gap: var(--space-2));
+
+    &__display-container {
+        max-inline-size: a.rem(1000);
+    }
+
+    &__display-image {
+        border-radius: var(--space-1);
+    }
+
+    &__thumbnail-images {
+        @include a.flexbox($gap: var(--space-1-5));
+    }
+
+    &__thumbnail-image {
+        border-radius: var(--space-0-5);
+    }
+}
+
 .lightbox-gallery__overlay {
     position: fixed;
     z-index: 1000;
