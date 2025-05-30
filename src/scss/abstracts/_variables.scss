@@ -13,11 +13,12 @@
     --color-blue-400: #b6bcc8;
     --color-blue-200: #f7f8fd;
 
-    --color-white: hsl(0, 0%, 100%);
-    --color-black: hsl(0, 0%, 0%);
+    --color-white: #ffffff;
+    --color-black: #000000;
 
     // semantic
     --color-nav-text: var(--color-blue-600);
+    --color-lightbox-bg: var(--color-black);
 
     /* font */
 

@@ -1,0 +1,14 @@
+@use '../abstracts' as a;
+
+.lightbox-gallery__overlay {
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    background-color: var(--color-lightbox-bg);
+    opacity: 0.75;
+    display: none;
+}
+
+.lightbox-gallery__overlay.active {
+    @include a.flexbox($align: center, $justify: center);
+}
