@@ -5,14 +5,24 @@
 
     &__display-container {
         max-inline-size: a.rem(1000);
+        width: 100%;
+        overflow: hidden;
+        position: relative;
 
         &:hover {
             cursor: pointer;
         }
     }
 
+    &__slider {
+        @include a.flexbox();
+        transition: transform 0.5s ease-in-out;
+    }
+
     &__display-image {
         border-radius: var(--space-1);
+        width: 100%;
+        flex-shrink: 0;
     }
 
     &__thumbnail-images {
