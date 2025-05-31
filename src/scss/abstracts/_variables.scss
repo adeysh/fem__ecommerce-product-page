@@ -4,7 +4,8 @@
     /* colors */
 
     // primary
-    --color-orange-500: #ff7d1a;
+    --color-orange: 26, 100%, 55%;
+    --color-orange-500: hsl(var(--color-orange));
     --color-orange-300: #ffede0;
 
     // neutral
@@ -19,6 +20,12 @@
     // semantic
     --color-nav-text: var(--color-blue-600);
     --color-nav-border: var(--color-blue-400);
+    --color-nav-hover-text: var(--color-blue-800);
+    --color-nav-hover-border: var(--color-orange-500);
+
+    --color-nav-cart-btn: var(--color-blue-600);
+    --color-nav-hover-cart-btn: var(--color-blue-800);
+    --color-nav-profile-btn-border: var(--color-orange-500);
 
     --color-lightbox-bg: var(--color-black);
 

@@ -72,6 +72,10 @@
             background-color: var(--color-cart-value-btn-bg);
             padding: 0;
 
+            &:hover {
+                cursor: pointer;
+            }
+
             img {
                 display: block;
                 margin: auto;
@@ -124,6 +128,12 @@
             height: 50px;
             background-color: var(--color-cart-submit-btn-bg);
             font-weight: var(--fw-bold);
+
+            &:hover {
+                cursor: pointer;
+                background-color: hsla(var(--color-orange), 0.8);
+                transition: all 0.3s ease-in-out;
+            }
 
             svg {
                 color: var(--color-cart-submit-btn-cart-icon);

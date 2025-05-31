@@ -11,19 +11,59 @@
 
     &__links {
         @include a.flexbox($align: center, $justify: center, $gap: var(--space-2-5));
+
+        li:hover {
+            .header__link {
+                color: var(--color-nav-hover-text);
+                transition: all 0.3s ease-in-out;
+            }
+
+            .header__link::after {
+                width: 100%;
+            }
+        }
     }
 
     &__link {
         color: var(--color-nav-text);
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            background-color: var(--color-nav-hover-border);
+            left: 0;
+            bottom: 0;
+            top: 60px;
+            width: 0%;
+            height: 3px;
+            border-radius: 2px;
+            transition: width 0.3s ease-in-out;
+        }
+
+        &:hover::after {
+            width: 100%;
+        }
     }
 
     &__actions {
-        @include a.flexbox($align: center, $justify: center, $gap: var(--space-1));
+        @include a.flexbox($align: center, $justify: center, $gap: var(--space-2));
 
         button {
             position: relative;
             background: none;
             border: none;
+            padding: 0;
+        }
+    }
+
+    &__cart-btn {
+        color: var(--color-nav-cart-btn);
+
+        &:hover {
+            cursor: pointer;
+            color: var(--color-nav-hover-cart-btn);
+            transition: all 0.3s ease-in-out;
         }
     }
 
@@ -74,6 +114,14 @@
         img {
             width: a.rem(40);
             height: a.rem(40);
+            border: 2px solid transparent;
+            border-radius: 50%;
+
+            &:hover {
+                cursor: pointer;
+                border: 2px solid var(--color-nav-profile-btn-border);
+                transition: all 0.3s ease-in-out;
+            }
         }
     }
 }

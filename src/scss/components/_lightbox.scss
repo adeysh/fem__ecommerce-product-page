@@ -5,6 +5,10 @@
 
     &__display-container {
         max-inline-size: a.rem(1000);
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     &__display-image {
@@ -17,6 +21,11 @@
 
     &__thumbnail-image {
         border-radius: var(--space-0-5);
+
+        &:hover {
+            cursor: pointer;
+            opacity: 0.5;
+        }
     }
 }
 
