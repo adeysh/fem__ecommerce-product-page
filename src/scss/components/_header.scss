@@ -21,9 +21,53 @@
         @include a.flexbox($align: center, $justify: center, $gap: var(--space-1));
 
         button {
+            position: relative;
             background: none;
             border: none;
         }
+    }
+
+    &__cart-modal {
+        @include a.flexbox($direction: column);
+        background-color: var(--color-cart-modal-bg);
+        position: absolute;
+        top: a.rem(60);
+        right: a.rem(-150);
+        width: a.rem(400);
+        height: a.rem(220);
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        transform: translateY(-50px);
+        opacity: 0;
+        pointer-events: none;
+        display: flex;
+        visibility: hidden;
+
+        &.mounted {
+            transition: all 0.3s ease-in-out;
+        }
+
+        &.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+            visibility: visible;
+        }
+    }
+
+    &__cart-title {
+        font-size: var(--fs-body);
+        font-weight: var(--fw-bold);
+        color: var(--color-cart-modal-title-text);
+        text-align: left;
+        padding: var(--space-1) var(--space-1-5);
+        border-bottom: 0.5px solid var(--color-nav-border);
+    }
+
+    &__cart-contents {
+        @include a.flexbox($align: center, $justify: center);
+        flex: 1;
+        color: var(--color-cart-modal-content-text);
+        font-weight: var(--fw-bold);
     }
 
     &__profile-btn {

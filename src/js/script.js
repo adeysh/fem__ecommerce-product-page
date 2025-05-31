@@ -1,6 +1,8 @@
 const lightboxGallery = document.querySelector(".lightbox-gallery");
 const displayImage = document.querySelector(".lightbox-gallery__display-image");
 const thumnailImages = lightboxGallery.querySelectorAll(".lightbox-gallery__thumbnail-image");
+const cartBtn = document.getElementById("cart-btn");
+const cartModal = document.getElementById("cart-modal");
 
 const lightboxOverlay = document.createElement("div");
 lightboxOverlay.classList.add("lightbox-gallery__overlay");
@@ -27,4 +29,14 @@ displayImage.addEventListener("click", e => {
 lightboxOverlay.addEventListener("click", e => {
     if (e.target !== e.currentTarget) return;
     lightboxOverlay.classList.remove("active");
+});
+
+cartBtn.addEventListener("click", () => {
+    cartModal.classList.toggle("active");
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+        document.getElementById("cart-modal").classList.add("mounted");
+    }, 50);
 });
