@@ -15,7 +15,9 @@
     --color-blue-200: #f7f8fd;
 
     --color-white: #ffffff;
-    --color-black: #000000;
+    --color-black: 0, 0%, 0%;
+    --color-black-regular: hsl(var(--color-black));
+    --color-black-light: hsla(var(--color-black), 0.75);
 
     // semantic
     --color-nav-text: var(--color-blue-600);
@@ -27,7 +29,9 @@
     --color-nav-hover-cart-btn: var(--color-blue-800);
     --color-nav-profile-btn-border: var(--color-orange-500);
 
-    --color-lightbox-bg: var(--color-black);
+    --color-lightbox-bg: var(--color-black-light);
+    --color-lightbox-close-btn: var(--color-white);
+    --color-lightbox-nav-button: var(--color-white);
 
     --color-title-text: var(--color-blue-800);
     --color-kicker-text: var(--color-blue-600);
