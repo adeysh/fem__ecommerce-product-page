@@ -29,12 +29,40 @@
         @include a.flexbox($gap: var(--space-1-5));
     }
 
+    &__thumbnail-image-container {
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+
+        .lightbox-gallery__thumbnail-image-highlight-overlay {
+            position: absolute;
+            background-color: var(--color-gallery-thumbnail-active);
+            inset: 1;
+            pointer-events: none;
+        }
+
+        &:hover .lightbox-gallery__thumbnail-image-highlight-overlay {
+            inset: 0;
+            background-color: var(--color-gallery-thumbnail-hover);
+        }
+    }
+
     &__thumbnail-image {
         border-radius: var(--space-0-5);
 
-        &:hover {
-            cursor: pointer;
-            opacity: 0.5;
+        border: 2px solid transparent;
+        position: relative;
+
+        &.active {
+            border: 2px solid var(--color-thumbnail-active-border);
+
+            +.lightbox-gallery__thumbnail-image-highlight-overlay {
+                position: absolute;
+                background-color: var(--color-gallery-thumbnail-active);
+                inset: 2px;
+                cursor: pointer;
+                border-radius: var(--space-0-5);
+            }
         }
     }
 
@@ -142,4 +170,42 @@
             margin-left: 4px;
         }
     }
+
+    .lightbox-gallery__thumbnail-image-container {
+        position: relative;
+        overflow: hidden;
+
+        .lightbox-gallery__thumbnail-image-highlight-overlay {
+            position: absolute;
+            background-color: var(--color-gallery-thumbnail-active);
+            inset: 1;
+            cursor: pointer;
+            border-radius: var(--space-0-5);
+        }
+
+        &:hover .lightbox-gallery__thumbnail-image-highlight-overlay {
+            inset: 0;
+            background-color: var(--color-gallery-thumbnail-hover);
+        }
+    }
+
+    .lightbox-gallery__thumbnail-image {
+        border-radius: var(--space-0-5);
+
+        border: 2px solid transparent;
+        position: relative;
+
+        &.active {
+            border: 2px solid var(--color-thumbnail-active-border);
+
+            +.lightbox-gallery__thumbnail-image-highlight-overlay {
+                position: absolute;
+                background-color: var(--color-gallery-thumbnail-active);
+                inset: 2px;
+                cursor: pointer;
+                border-radius: var(--space-0-5);
+            }
+        }
+    }
+
 }

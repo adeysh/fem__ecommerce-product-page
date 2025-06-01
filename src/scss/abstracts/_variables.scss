@@ -14,7 +14,10 @@
     --color-blue-400: #b6bcc8;
     --color-blue-200: #f7f8fd;
 
-    --color-white: #ffffff;
+    --color-white: 0, 0%, 100%;
+    --color-white-regular: hsla(var(--color-white));
+    --color-white-light: hsla(var(--color-white), 0.3);
+    --color-white-extra-light: hsla(var(--color-white), 0.75);
     --color-black: 0, 0%, 0%;
     --color-black-regular: hsl(var(--color-black));
     --color-black-light: hsla(var(--color-black), 0.75);
@@ -29,16 +32,19 @@
     --color-nav-hover-cart-btn: var(--color-blue-800);
     --color-nav-profile-btn-border: var(--color-orange-500);
 
+    --color-gallery-thumbnail-active: var(--color-white-extra-light);
+    --color-gallery-thumbnail-hover: var(--color-white-light);
+
     --color-lightbox-bg: var(--color-black-light);
-    --color-lightbox-close-btn: var(--color-white);
-    --color-lightbox-nav-button: var(--color-white);
+    --color-lightbox-close-btn: var(--color-white-regular);
+    --color-lightbox-nav-button: var(--color-white-regular);
 
     --color-title-text: var(--color-blue-800);
     --color-kicker-text: var(--color-blue-600);
     --color-description-text: var(--color-blue-600);
 
     --color-final-price-text: var(--color-blue-800);
-    --color-discount-text: var(--color-white);
+    --color-discount-text: var(--color-white-regular);
     --color-discount-bg: var(--color-blue-800);
     --color-original-price-text: var(--color-blue-600);
 
@@ -48,9 +54,11 @@
     --color-cart-submit-btn-bg: var(--color-orange-500);
     --color-cart-submit-btn-cart-icon: var(--color-blue-800);
 
-    --color-cart-modal-bg: var(--color-white);
+    --color-cart-modal-bg: var(--color-white-regular);
     --color-cart-modal-title-text: var(--color-blue-800);
     --color-cart-modal-content-text: var(--color-blue-600);
+
+    --color-thumbnail-active-border: var(--color-orange-500);
 
     /* font */
 

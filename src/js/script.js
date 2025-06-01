@@ -3,18 +3,21 @@ const displayImage = document.querySelector(".lightbox-gallery__display-image");
 const overlay = document.getElementById("lightbox-overlay");
 const lightboxOverlay = overlay.querySelector(".lightbox-gallery--overlay");
 const thumnailImages = lightboxGallery.querySelectorAll(".lightbox-gallery__thumbnail-image");
+console.log(thumnailImages);
+
+const overlayThumbnailImages = overlay.querySelectorAll(".lightbox-gallery__thumbnail-image");
 const imageSlider = document.getElementById("image-slider");
 const closeButton = document.getElementById("overlay-close-btn");
 
 const cartBtn = document.getElementById("cart-btn");
 const cartModal = document.getElementById("cart-modal");
 
-thumnailImages.forEach((thumbnail) => {
+thumnailImages.forEach((thumbnail, index) => {
     thumbnail.addEventListener("click", () => {
         const newSrc = thumbnail.src.replace("-thumbnail", "");
+        currentIndex = index;
 
         const currentImage = imageSlider.querySelector("img");
-
         const newImage = currentImage.cloneNode(true);
         newImage.src = newSrc;
 
@@ -32,11 +35,17 @@ thumnailImages.forEach((thumbnail) => {
 
             imageSlider.style.transition = "transform 0.5s ease-in-out";
         }, 500);
+
+        updateActiveThumbnail(currentIndex);
     });
 });
 
-displayImage.addEventListener("click", () => {
-    overlay.classList.add("active");
+imageSlider.addEventListener("click", (e) => {
+    if (e.target && e.target.classList.contains("lightbox-gallery__display-image")) {
+        overlay.classList.add("active");
+        overlayDisplayImage.src = imagePaths[currentIndex];
+        updateActiveThumbnail(currentIndex);
+    }
 });
 
 const imagePaths = [
@@ -47,6 +56,7 @@ const imagePaths = [
 ];
 
 let currentIndex = 0;
+updateActiveThumbnail(currentIndex);
 const overlaySlider = document.getElementById("overlay-slider");
 
 const overlayDisplayImage = overlay.querySelector(".lightbox-gallery__display-image");
@@ -86,10 +96,22 @@ function slideToImage(index, direction) {
     }, 500);
 }
 
+function updateActiveThumbnail(index) {
+    console.log(index);
+    thumnailImages.forEach((thumb, i) => {
+        thumb.classList.toggle("active", i === index);
+    });
+    overlayThumbnailImages.forEach((thumb, i) => {
+        thumb.classList.toggle("active", i === index);
+    });
+}
+
 prevBtn.addEventListener("click", () => {
     if (currentIndex > 0) {
         currentIndex--;
         slideToImage(currentIndex, "prev");
+        // console.log(currentIndex);
+        updateActiveThumbnail(currentIndex);
     }
 });
 
@@ -97,6 +119,8 @@ nextBtn.addEventListener("click", () => {
     if (currentIndex < imagePaths.length - 1) {
         currentIndex++;
         slideToImage(currentIndex, "next");
+        // console.log(currentIndex);
+        updateActiveThumbnail(currentIndex);
     }
 });
 
@@ -116,6 +140,29 @@ overlay.addEventListener("click", (e) => {
 
 closeButton.addEventListener("click", () => {
     overlay.classList.remove("active");
+
+    const newImage = displayImage.cloneNode(true);
+    newImage.src = imagePaths[currentIndex];
+
+    const currentImage = imageSlider.querySelector("img");
+    imageSlider.appendChild(newImage);
+
+    imageSlider.style.transition = "transform 0.5s ease-in-out"
+    imageSlider.style.transform = "translateX(-100%)";
+
+    setTimeout(() => {
+        imageSlider.removeChild(currentImage);
+
+        imageSlider.style.transition = "none";
+        imageSlider.style.transform = "translateX(0)";
+
+        void imageSlider.offsetWidth;
+
+        imageSlider.style.transition = "transform 0.5s ease-in-out";
+    }, 500);
+
+    updateActiveThumbnail(currentIndex);
+    console.log(currentIndex);
 });
 
 
