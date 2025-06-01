@@ -30,14 +30,26 @@
 
     --color-nav-cart-btn: var(--color-blue-600);
     --color-nav-hover-cart-btn: var(--color-blue-800);
+    --color-nav-cart-count-btn-bg: var(--color-orange-500);
+    --color-nav-cart-count-btn-text: var(--color-white-regular);
     --color-nav-profile-btn-border: var(--color-orange-500);
+
+    --color-nav-cart-item-title-text: var(--color-blue-600);
+    --color-nav-cart-item-price-text: var(--color-blue-600);
+    --color-nav-cart-item-total-price-text: var(--color-blue-800);
+    --color-nav-cart-checkout-btn-text: var(--color-blue-800);
+    --color-nav-cart-checkout-btn-bg: var(--color-orange-500);
+    --color-nav-cart-delete-btn: var(--color-blue-400);
+    --color-nav-cart-delete-btn-hover: var(--color-blue-800);
 
     --color-gallery-thumbnail-active: var(--color-white-extra-light);
     --color-gallery-thumbnail-hover: var(--color-white-light);
 
     --color-lightbox-bg: var(--color-black-light);
     --color-lightbox-close-btn: var(--color-white-regular);
+    --color-lightbox-close-btn-hover: var(--color-orange-500);
     --color-lightbox-nav-button: var(--color-white-regular);
+    --color-lightbox-nav-button-hover-img: var(--color-orange-500);
 
     --color-title-text: var(--color-blue-800);
     --color-kicker-text: var(--color-blue-600);

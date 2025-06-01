@@ -94,6 +94,10 @@
             -moz-box-shadow: 0px 0px 16px 0px rgba(255, 255, 255, 1);
             box-shadow: 0px 0px 16px 0px rgba(255, 255, 255, 1);
             transition: all 0.3s ease-in-out;
+
+            svg {
+                color: var(--color-lightbox-close-btn-hover);
+            }
         }
 
         padding: 0;
@@ -146,13 +150,14 @@
         height: 60px;
         z-index: 1;
         opacity: 0.8;
-        transition: opacity 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
         @include a.flexbox($align: center, $justify: center);
         padding: 0;
     }
 
     .lightbox-gallery__nav:hover {
         opacity: 1;
+        color: var(--color-lightbox-nav-button-hover-img);
     }
 
     .lightbox-gallery__nav--prev {

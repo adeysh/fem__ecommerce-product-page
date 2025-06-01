@@ -48,9 +48,9 @@
 
     &__actions {
         @include a.flexbox($align: center, $justify: center, $gap: var(--space-2));
+        position: relative;
 
-        button {
-            position: relative;
+        button:not(.header__cart-checkout-btn) {
             background: none;
             border: none;
             padding: 0;
@@ -58,12 +58,31 @@
     }
 
     &__cart-btn {
+        position: relative;
         color: var(--color-nav-cart-btn);
 
         &:hover {
             cursor: pointer;
             color: var(--color-nav-hover-cart-btn);
             transition: all 0.3s ease-in-out;
+        }
+
+        .cart-icon-wrapper {
+            position: relative;
+            @include a.flexbox($align: center);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -15px;
+            right: -10px;
+            background-color: var(--color-nav-cart-count-btn-bg);
+            color: var(--color-nav-cart-count-btn-text);
+            font-size: var(--fs-xs);
+            padding: 0 a.rem(8);
+            border-radius: a.rem(12);
+            font-weight: var(--fw-bold);
+            // display: none;
         }
     }
 
@@ -72,15 +91,16 @@
         background-color: var(--color-cart-modal-bg);
         position: absolute;
         top: a.rem(60);
-        right: a.rem(-150);
-        width: a.rem(400);
-        height: a.rem(220);
+        right: a.rem(-100);
+        width: a.rem(380);
+        height: a.rem(250);
         box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
         transform: translateY(-50px);
         opacity: 0;
         pointer-events: none;
         display: flex;
         visibility: hidden;
+        border-radius: a.rem(8);
 
         &.mounted {
             transition: all 0.3s ease-in-out;
@@ -108,6 +128,60 @@
         flex: 1;
         color: var(--color-cart-modal-content-text);
         font-weight: var(--fw-bold);
+        // display: none;
+    }
+
+    &__cart-item {
+        @include a.flexbox($direction: column, $gap: a.rem(24));
+        flex: 1;
+        padding: var(--space-1-5);
+
+        &-details {
+            @include a.flexbox($align: center, $justify: space-between);
+
+            svg {
+                color: var(--color-nav-cart-delete-btn);
+                transition: color 0.3s ease-in-out;
+
+                &:hover {
+                    color: var(--color-nav-cart-delete-btn-hover);
+                }
+            }
+        }
+
+        &-image {
+            width: a.rem(60);
+            height: a.rem(60);
+            border-radius: a.rem(8);
+        }
+
+        &-title {
+            color: var(--color-nav-cart-item-title-text);
+            font-size: var(--fs-body);
+        }
+
+        &-price {
+            color: var(--color-nav-cart-item-price-text);
+        }
+
+        .cart-total-quantity {
+            color: var(--color-nav-cart-item-total-price-text);
+            font-weight: var(--fw-bold);
+        }
+    }
+
+    &__cart-checkout-btn {
+        color: var(--color-nav-cart-checkout-btn-text);
+        font-weight: var(--fw-bold);
+        background: var(--color-nav-cart-checkout-btn-bg);
+        border: none;
+        padding: a.rem(12);
+        border-radius: a.rem(8);
+        transition: background 0.3s ease-in-out;
+
+        &:hover {
+            background: hsla(var(--color-orange), 0.8);
+        }
     }
 
     &__profile-btn {
