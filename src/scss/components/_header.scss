@@ -7,6 +7,10 @@
 
     &__nav {
         @include a.flexbox($gap: var(--space-5));
+
+        @include a.bp($to: "tablet") {
+            @include a.flexbox($direction: row-reverse, $align: center, $gap: var(--space-1));
+        }
     }
 
     &__links {
@@ -21,6 +25,10 @@
             .header__link::after {
                 width: 100%;
             }
+        }
+
+        @include a.bp($to: "tablet") {
+            @include a.flexbox($direction: column, $gap: var(--space-1-5));
         }
     }
 
@@ -39,10 +47,18 @@
             height: 3px;
             border-radius: 2px;
             transition: width 0.3s ease-in-out;
+
+            @include a.bp($to: "tablet") {
+                top: 24px;
+            }
         }
 
         &:hover::after {
             width: 100%;
+        }
+
+        @include a.bp($to: "tablet") {
+            font-weight: var(--fw-bold);
         }
     }
 
@@ -199,5 +215,9 @@
                 transition: all 0.3s ease-in-out;
             }
         }
+    }
+
+    @include a.bp($to: "tablet") {
+        padding-block: var(--space-1);
     }
 }

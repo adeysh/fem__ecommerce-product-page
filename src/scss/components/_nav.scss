@@ -1,0 +1,77 @@
+@use '../abstracts' as a;
+
+.nav {
+    &__button {
+        background: none;
+        border: none;
+        padding: 0;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &--open {
+            display: block;
+
+            &[aria-expanded="true"] {
+                ~.nav__content {
+                    translate: 0;
+
+                    @media (prefers-reduced-motion) {
+                        opacity: 1;
+                    }
+                }
+
+                ~.nav__menu-overlay {
+                    opacity: 0.5;
+                }
+            }
+        }
+
+        &--close {
+            display: block;
+            // margin-inline-start: auto;
+            margin-block-end: a.rem(86);
+        }
+
+        @include a.bp($from: "desktop") {
+            display: none;
+        }
+    }
+
+    &__content {
+
+        @media (prefers-reduced-motion) {
+            translate: 0;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        @include a.bp($to: "tablet") {
+            display: none;
+            position: fixed;
+            inset: 0 a.rem(120) 0 0;
+            background-color: var(--color-menu-bg);
+            z-index: 2;
+            padding: var(--space-2);
+            translate: -100vw 0;
+            transition: translate 0.5s ease-in-out;
+        }
+    }
+
+    &__menu-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background-color: var(--color-menu-overlay);
+        opacity: 0;
+        z-index: 1;
+        transition: opacity 0.3s ease-in-out;
+        pointer-events: none;
+    }
+
+    @include a.bp($to: "tablet") {
+        @include a.flexbox();
+        align-self: flex-end;
+    }
+}

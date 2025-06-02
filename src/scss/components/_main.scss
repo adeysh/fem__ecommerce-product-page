@@ -1,6 +1,14 @@
 @use '../abstracts' as a;
 
 .main {
+
+
     @include a.flexbox($align: center, $justify: center, $gap: var(--space-7-5));
     padding-inline: var(--space-3);
+
+    @include a.bp($to: "tablet") {
+        @include a.flexbox($direction: column, $align: center, $justify: center, $gap: a.rem(20));
+        padding-block-end: a.rem(150);
+        padding-inline: 0;
+    }
 }

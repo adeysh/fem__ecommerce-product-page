@@ -3,6 +3,11 @@
 .page-content {
     @include a.flexbox($direction: column, $gap: var(--space-2-5));
 
+    @include a.bp($to: "tablet") {
+        @include a.flexbox($direction: column, $gap: var(--space-2));
+    }
+
+
     &__kicker {
         font-size: var(--fs-xs);
         font-weight: var(--fw-bold);
@@ -24,6 +29,7 @@
     }
 
     .price {
+
         @include a.flexbox($direction: column);
         margin-block-start: a.rem(-10);
 
@@ -51,21 +57,40 @@
             font-size: var(--fs-body);
             font-weight: var(--fw-bold);
         }
+
+        @include a.bp($to: "tablet") {
+            @include a.flexbox($direction: row, $align: center, $justify: space-between);
+        }
+
     }
 
     .cart {
+
+
         @include a.flexbox($align: center);
 
         &__quantity-form {
+
             width: 100%;
             @include a.flexbox($align: center, $gap: var(--space-1));
+
+            @include a.bp($to: "tablet") {
+                @include a.flexbox($direction: column, $gap: var(--space-1));
+            }
         }
 
         &__quantity-container {
+
             @include a.flexbox($align: center);
+
+            @include a.bp($to: "tablet") {
+                @include a.flexbox($justify: space-between);
+            }
         }
 
         &__value-button {
+
+
             border: none;
             width: 50px;
             height: 50px;
@@ -100,9 +125,15 @@
                 width: a.rem(12);
                 height: a.rem(12);
             }
+
+            @include a.bp($to: "tablet") {
+                flex: 1;
+            }
         }
 
         &__input {
+
+
             appearance: none;
             border: none;
             width: 50px;
@@ -118,9 +149,14 @@
                 -webkit-appearance: none;
                 margin: 0;
             }
+
+            @include a.bp($to: "tablet") {
+                flex: 1;
+            }
         }
 
         &__add-to-cart-btn {
+
             @include a.flexbox($align: center, $justify: center, $gap: var(--space-1));
             flex: 1;
             border: none;
@@ -128,6 +164,9 @@
             height: 50px;
             background-color: var(--color-cart-submit-btn-bg);
             font-weight: var(--fw-bold);
+            box-shadow: rgb(255, 125, 26) 0px 18px 60px -7px;
+
+
 
             &:hover {
                 cursor: pointer;
@@ -137,6 +176,10 @@
 
             svg {
                 color: var(--color-cart-submit-btn-cart-icon);
+            }
+
+            @include a.bp($to: "tablet") {
+                padding-block: a.rem(12);
             }
         }
     }

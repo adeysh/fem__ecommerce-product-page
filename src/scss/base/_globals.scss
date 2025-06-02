@@ -11,10 +11,15 @@ body {
     font-family: var(--ff-primary);
     font-size: var(--fs-body);
     background-color: var(--color-white-regular);
-    @include a.flexbox($direction: column, $align: center, $gap: var(--space-5-5));
     height: auto;
     min-block-size: 100vh;
     line-height: 1.7;
+    @include a.flexbox($direction: column, $align: center, $gap: var(--space-5-5));
+
+    @include a.bp($to: "tablet") {
+        @include a.flexbox($direction: column, $align: center, $gap: 0);
+    }
+
     // padding-block-end: a.rem(100);
 }
 
@@ -72,4 +77,8 @@ input {
     position: absolute;
     white-space: nowrap;
     width: 1px;
+}
+
+.no-scroll {
+    overflow-y: hidden;
 }
