@@ -145,6 +145,7 @@
 
                 &:hover {
                     color: var(--color-nav-cart-delete-btn-hover);
+                    cursor: pointer;
                 }
             }
         }
@@ -181,6 +182,7 @@
 
         &:hover {
             background: hsla(var(--color-orange), 0.8);
+            cursor: pointer;
         }
     }
 
