@@ -79,6 +79,68 @@
             padding: var(--space-2);
         }
     }
+
+    &__display-wrapper--mobile {
+        @include a.flexbox($align: center, $justify: center);
+        position: relative;
+
+        .lightbox-gallery__nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--color-lightbox-nav-button);
+            border: none;
+            border-radius: 50%;
+            font-size: 2rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            z-index: 1;
+            opacity: 0.8;
+            transition: all 0.3s ease-in-out;
+            @include a.flexbox($align: center, $justify: center);
+            padding: 0;
+        }
+
+        .lightbox-gallery__nav:hover {
+            opacity: 1;
+            color: var(--color-lightbox-nav-button-hover-img);
+        }
+
+        .lightbox-gallery__nav--prev {
+            left: 10px;
+
+            svg {
+                margin-right: 4px;
+            }
+        }
+
+        .lightbox-gallery__nav--next {
+            right: 10px;
+
+            svg {
+                margin-left: 4px;
+            }
+        }
+
+        @include a.bp($from: "tablet") {
+            display: none;
+        }
+    }
+
+    &__display-wrapper--desktop {
+        display: flex;
+
+        @include a.bp($to: "tablet") {
+            display: none;
+        }
+    }
+
+    &__display-wrapper:not(.lightbox-gallery__display-wrapper--mobile) {
+        @include a.bp($to: "tablet") {
+            display: none;
+        }
+    }
 }
 
 .lightbox-gallery__overlay {
