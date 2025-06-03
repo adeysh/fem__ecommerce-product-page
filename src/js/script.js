@@ -93,39 +93,6 @@ const overlayNextBtn = overlay.querySelector(".lightbox-gallery__nav--next:not(.
 const mobilePrevBtn = document.querySelector(".lightbox-gallery__nav--prev.mobile");
 const mobileNextBtn = document.querySelector(".lightbox-gallery__nav--next.mobile");
 
-// function slideToImage(index, direction) {
-//     const currentImage = overlaySlider.querySelector("img");
-//     const newImage = currentImage.cloneNode(true);
-//     newImage.src = imagePaths[index];
-
-//     overlaySlider.style.transition = "none";
-
-//     if (direction === "next") {
-//         overlaySlider.appendChild(newImage);
-//         overlaySlider.style.transform = "translateX(0)";
-
-//         requestAnimationFrame(() => {
-//             overlaySlider.style.transition = "transform 0.5s ease-in-out";
-//             overlaySlider.style.transform = "translateX(-100%)";
-//         });
-//     } else {
-//         overlaySlider.insertBefore(newImage, currentImage);
-//         overlaySlider.style.transform = "translateX(-100%)";
-
-//         requestAnimationFrame(() => {
-//             overlaySlider.style.transition = "transform 0.5s ease-in-out";
-//             overlaySlider.style.transform = "translateX(0)";
-//         });
-//     }
-
-//     setTimeout(() => {
-//         overlaySlider.innerHTML = "";
-//         overlaySlider.appendChild(newImage);
-//         overlaySlider.style.transition = "none";
-//         overlaySlider.style.transform = "translateX(0)";
-//     }, 500);
-// }
-
 function slideToImage(sliderElement, index, direction) {
     const currentImage = sliderElement.querySelector("img");
     const newImage = currentImage.cloneNode(true);
@@ -196,6 +163,18 @@ mobileNextBtn?.addEventListener("click", () => {
         currentIndex++;
         slideToImage(mobileSlider, currentIndex, "next");
     }
+});
+
+overlayThumbnailImages.forEach((thumbnail, index) => {
+    thumbnail.addEventListener("click", () => {
+        if (index === currentIndex) return;
+
+        const direction = index > currentIndex ? "next" : "prev";
+        currentIndex = index;
+
+        slideToImage(overlaySlider, currentIndex, direction);
+        updateActiveThumbnail(currentIndex);
+    });
 });
 
 

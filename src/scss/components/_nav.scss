@@ -47,7 +47,7 @@
             transition: opacity 0.5s ease-in-out;
         }
 
-        @include a.bp($to: "tablet") {
+        @include a.bp($to: "desktop") {
             display: none;
             position: fixed;
             inset: 0 a.rem(120) 0 0;

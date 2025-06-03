@@ -121,6 +121,7 @@
         display: flex;
         visibility: hidden;
         border-radius: a.rem(8);
+        z-index: 2;
 
         &.mounted {
             transition: all 0.3s ease-in-out;
@@ -131,6 +132,12 @@
             opacity: 1;
             pointer-events: auto;
             visibility: visible;
+        }
+
+        @include a.bp($to: "tablet") {
+            top: a.rem(65);
+            right: a.rem(-8);
+            width: a.rem(350);
         }
     }
 
@@ -179,10 +186,18 @@
         &-title {
             color: var(--color-nav-cart-item-title-text);
             font-size: var(--fs-body);
+
+            @include a.bp($to: "desktop") {
+                font-size: var(--fs-s);
+            }
         }
 
         &-price {
             color: var(--color-nav-cart-item-price-text);
+
+            @include a.bp($to: "desktop") {
+                font-size: var(--fs-s);
+            }
         }
 
         &-delete-btn {
