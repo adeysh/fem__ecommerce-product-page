@@ -16,6 +16,14 @@ body {
     line-height: 1.7;
     @include a.flexbox($direction: column, $align: center, $gap: var(--space-5-5));
 
+    &.overlay-active {
+
+        .lightbox-gallery,
+        .page-content {
+            pointer-events: none;
+        }
+    }
+
     @include a.bp($to: "tablet") {
         @include a.flexbox($direction: column, $align: center, $gap: 0);
         overflow-x: hidden;
@@ -82,4 +90,11 @@ input {
 
 .no-scroll {
     overflow-y: hidden;
+}
+
+*:focus,
+*:focus-visible {
+    outline: 2px solid var(--color-focus-outline);
+    outline-offset: 1.2px;
+    z-index: 1;
 }

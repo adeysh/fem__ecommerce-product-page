@@ -2,9 +2,12 @@ const lightboxGallery = document.querySelector(".lightbox-gallery");
 const displayImage = document.querySelector(".lightbox-gallery__display-image");
 const overlay = document.getElementById("lightbox-overlay");
 const lightboxOverlay = overlay.querySelector(".lightbox-gallery--overlay");
+const thumbnailImageContainers = lightboxGallery.querySelectorAll(".lightbox-gallery__thumbnail-image-container");
 const thumnailImages = lightboxGallery.querySelectorAll(".lightbox-gallery__thumbnail-image");
 
 const overlayThumbnailImages = overlay.querySelectorAll(".lightbox-gallery__thumbnail-image");
+
+const pageContent = document.querySelector(".page-content");
 const imageSlider = document.getElementById("image-slider");
 const closeButton = document.getElementById("overlay-close-btn");
 
@@ -37,6 +40,19 @@ thumnailImages.forEach((thumbnail, index) => {
 
         updateActiveThumbnail(currentIndex);
     });
+
+});
+
+thumbnailImageContainers.forEach(container => {
+    container.addEventListener('keyup', (event) => {
+        console.log(container);
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            const image = container.querySelector("img");
+            // Trigger the click event
+            image.click();
+        }
+    });
 });
 
 imageSlider.addEventListener("click", (e) => {
@@ -44,8 +60,18 @@ imageSlider.addEventListener("click", (e) => {
         overlay.classList.add("active");
         overlayDisplayImage.src = imagePaths[currentIndex];
         updateActiveThumbnail(currentIndex);
+        lightboxGallery.setAttribute("inert", "");
+        pageContent.setAttribute("inert", "");
     }
 });
+
+imageSlider.addEventListener("keyup", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        const image = imageSlider.querySelector("img");
+        image.click();
+    }
+})
 
 const imagePaths = [
     "/assets/images/image-product-1.jpg",
@@ -182,11 +208,15 @@ mobileNextBtn?.addEventListener("click", () => {
 overlay.addEventListener("click", (e) => {
     if (e.target === overlay) {
         overlay.classList.remove("active");
+        lightboxGallery.removeAttribute("inert");
+        pageContent.removeAttribute("inert");
     }
 });
 
 closeButton.addEventListener("click", () => {
     overlay.classList.remove("active");
+    lightboxGallery.removeAttribute("inert");
+    pageContent.removeAttribute("inert");
 
     const newImage = displayImage.cloneNode(true);
     newImage.src = imagePaths[currentIndex];
@@ -317,7 +347,7 @@ function addToCart(quantity) {
                     </p>
                 </div>
                 <div>
-                    <button type="button"  class="header__cart-item-delete-btn" id="cart-item-delete" aria-label="delete item">
+                    <button type="button"  class="header__cart-item-delete-btn" id="cart-item-delete" aria-label="delete item"  tabindex="0">
                         <svg width="14" height="16" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink">
                             <defs>
@@ -339,6 +369,13 @@ function addToCart(quantity) {
 
 
     cartModal.insertAdjacentHTML("beforeend", cartItemHTML);
+
+    // setTimeout(() => {
+    //     const deleteBtn = cartModal.querySelector(".header__cart-item-delete-btn");
+    //     if (deleteBtn) {
+    //         deleteBtn.focus();
+    //     }
+    // }, 200);
     console.log(cartModal);
     const cartItemDeleteBtn = cartModal.querySelector("#cart-item-delete");
 
@@ -367,9 +404,9 @@ quantityForm.addEventListener("submit", (e) => {
     const data = Object.fromEntries(new FormData(quantityForm));
     const quantity = parseInt(data.quantity);
 
+    cartModal.classList.add("active");
     addToCart(quantity);
     updateCartBadge(quantity);
-    cartModal.classList.add("active");
 });
 
 document.addEventListener("click", (e) => {

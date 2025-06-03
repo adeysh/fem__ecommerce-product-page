@@ -17,6 +17,15 @@
     &__slider {
         @include a.flexbox();
         transition: transform 0.5s ease-in-out;
+
+        &:focus,
+        &:focus-visible {
+            img {
+
+                outline: 2px solid black;
+                outline-offset: -2px;
+            }
+        }
     }
 
     &__display-image {
@@ -41,6 +50,8 @@
         position: relative;
         overflow: hidden;
         cursor: pointer;
+        border-radius: var(--space-0-5);
+
 
         .lightbox-gallery__thumbnail-image-highlight-overlay {
             position: absolute;
@@ -49,6 +60,8 @@
             pointer-events: none;
         }
 
+        &:focus .lightbox-gallery__thumbnail-image-highlight-overlay,
+        &:focus-visible .lightbox-gallery__thumbnail-image-highlight-overlay,
         &:hover .lightbox-gallery__thumbnail-image-highlight-overlay {
             inset: 0;
             background-color: var(--color-gallery-thumbnail-hover);
@@ -102,9 +115,14 @@
             padding: 0;
         }
 
-        .lightbox-gallery__nav:hover {
-            opacity: 1;
-            color: var(--color-lightbox-nav-button-hover-img);
+        .lightbox-gallery__nav {
+
+            &:focus,
+            &:focus-visible,
+            &:hover {
+                opacity: 1;
+                color: var(--color-lightbox-nav-button-hover-img);
+            }
         }
 
         .lightbox-gallery__nav--prev {
@@ -162,6 +180,8 @@
         border: none;
         color: var(--color-lightbox-close-btn);
 
+        &:focus,
+        &:focus-visible,
         &:hover {
             cursor: pointer;
             -webkit-box-shadow: 0px 0px 16px 0px rgba(255, 255, 255, 1);
@@ -233,9 +253,14 @@
         padding: 0;
     }
 
-    .lightbox-gallery__nav:hover {
-        opacity: 1;
-        color: var(--color-lightbox-nav-button-hover-img);
+    .lightbox-gallery__nav {
+
+        &:focus,
+        &:focus-visible,
+        &:hover {
+            opacity: 1;
+            color: var(--color-lightbox-nav-button-hover-img);
+        }
     }
 
     .lightbox-gallery__nav--prev {

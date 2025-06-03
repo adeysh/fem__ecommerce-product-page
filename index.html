@@ -112,7 +112,7 @@
 
             <div class="lightbox-gallery__display-wrapper lightbox-gallery__display-wrapper--desktop">
                 <div class="lightbox-gallery__display-container">
-                    <div class="lightbox-gallery__slider" id="image-slider">
+                    <div class="lightbox-gallery__slider" id="image-slider" tabindex="0">
                         <img src="/assets/images/image-product-1.jpg" alt="product image"
                             class="lightbox-gallery__display-image" id="main-display-image">
                     </div>
@@ -144,22 +144,22 @@
             </div>
 
             <div class="lightbox-gallery__thumbnail-images">
-                <div class="lightbox-gallery__thumbnail-image-container">
+                <div class="lightbox-gallery__thumbnail-image-container" tabindex="0">
                     <img src="/assets/images/image-product-1-thumbnail.jpg" alt="product image"
                         class="lightbox-gallery__thumbnail-image">
                     <div class="lightbox-gallery__thumbnail-image-highlight-overlay"></div>
                 </div>
-                <div class="lightbox-gallery__thumbnail-image-container">
+                <div class="lightbox-gallery__thumbnail-image-container" tabindex="0">
                     <img src="/assets/images/image-product-2-thumbnail.jpg" alt="product image"
                         class="lightbox-gallery__thumbnail-image">
                     <div class="lightbox-gallery__thumbnail-image-highlight-overlay"></div>
                 </div>
-                <div class="lightbox-gallery__thumbnail-image-container">
+                <div class="lightbox-gallery__thumbnail-image-container" tabindex="0">
                     <img src="/assets/images/image-product-3-thumbnail.jpg" alt="product image"
                         class="lightbox-gallery__thumbnail-image">
                     <div class="lightbox-gallery__thumbnail-image-highlight-overlay"></div>
                 </div>
-                <div class="lightbox-gallery__thumbnail-image-container">
+                <div class="lightbox-gallery__thumbnail-image-container" tabindex="0">
                     <img src="/assets/images/image-product-4-thumbnail.jpg" alt="product image"
                         class="lightbox-gallery__thumbnail-image">
                     <div class="lightbox-gallery__thumbnail-image-highlight-overlay"></div>
@@ -262,7 +262,7 @@
 
                         <label for="quantity" class="visually-hidden" name="quantity">Quantity</label>
                         <input type="number" class="cart__input" id="quantity" name="quantity" value="0"
-                            aria-label="Quantity" />
+                            aria-label="Quantity" tabindex="-1" />
 
                         <button type="button" class="cart__value-button cart__value-button--increase" id="increase"
                             value="Increase Value">
