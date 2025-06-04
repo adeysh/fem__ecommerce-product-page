@@ -52,7 +52,6 @@
         cursor: pointer;
         border-radius: var(--space-0-5);
 
-
         .lightbox-gallery__thumbnail-image-highlight-overlay {
             position: absolute;
             background-color: var(--color-gallery-thumbnail-active);
@@ -70,7 +69,6 @@
 
     &__thumbnail-image {
         border-radius: var(--space-0-5);
-
         border: 2px solid transparent;
         position: relative;
 
@@ -104,10 +102,10 @@
             background-color: var(--color-lightbox-nav-button);
             border: none;
             border-radius: 50%;
-            font-size: 2rem;
+            font-size: a.rem(32);
             cursor: pointer;
-            width: 40px;
-            height: 40px;
+            width: a.rem(40);
+            height: a.rem(40);
             z-index: 1;
             opacity: 0.8;
             transition: all 0.3s ease-in-out;
@@ -126,10 +124,10 @@
         }
 
         .lightbox-gallery__nav--prev {
-            left: 10px;
+            left: a.rem(10);
 
             svg {
-                margin-right: 4px;
+                margin-right: a.rem(4);
             }
         }
 
@@ -137,7 +135,7 @@
             right: 10px;
 
             svg {
-                margin-left: 4px;
+                margin-left: a.rem(4);
             }
         }
 
@@ -162,8 +160,6 @@
 }
 
 .lightbox-gallery__overlay {
-
-
     position: fixed;
     z-index: 1000;
     inset: 0;
@@ -171,8 +167,6 @@
     display: none;
     width: 100vw;
     height: 100vh;
-
-
 
     &-close-btn {
         align-self: flex-end;
@@ -208,8 +202,8 @@
 
 .lightbox-gallery--overlay {
     padding: 1rem;
-    max-width: 500px;
-    max-height: 900px;
+    max-width: a.rem(500);
+    max-height: a.rem(900);
     width: 100%;
     border-radius: var(--space-1);
     @include a.flexbox($direction: column, $gap: var(--space-1));
@@ -242,10 +236,10 @@
         background-color: var(--color-lightbox-nav-button);
         border: none;
         border-radius: 50%;
-        font-size: 2rem;
+        font-size: a.rem(32);
         cursor: pointer;
-        width: 60px;
-        height: 60px;
+        width: a.rem(60);
+        height: a.rem(60);
         z-index: 1;
         opacity: 0.8;
         transition: all 0.3s ease-in-out;
@@ -264,18 +258,18 @@
     }
 
     .lightbox-gallery__nav--prev {
-        left: -30px;
+        left: a.rem(-30);
 
         svg {
-            margin-right: 4px;
+            margin-right: a.rem(4);
         }
     }
 
     .lightbox-gallery__nav--next {
-        right: -30px;
+        right: a.rem(-30);
 
         svg {
-            margin-left: 4px;
+            margin-left: a.rem(4);
         }
     }
 
@@ -315,5 +309,4 @@
             }
         }
     }
-
 }

@@ -42,14 +42,14 @@
             background-color: var(--color-nav-hover-border);
             left: 0;
             bottom: 0;
-            top: 60px;
+            top: a.rem(60);
             width: 0%;
-            height: 3px;
-            border-radius: 2px;
+            height: a.rem(3);
+            border-radius: a.rem(2);
             transition: width 0.3s ease-in-out;
 
             @include a.bp($to: "tablet") {
-                top: 24px;
+                top: a.rem(24);
             }
         }
 
@@ -94,15 +94,14 @@
 
         .cart-count {
             position: absolute;
-            top: -15px;
-            right: -10px;
+            top: a.rem(-15);
+            right: a.rem(-10);
             background-color: var(--color-nav-cart-count-btn-bg);
             color: var(--color-nav-cart-count-btn-text);
             font-size: var(--fs-xs);
             padding: 0 a.rem(8);
             border-radius: a.rem(12);
             font-weight: var(--fw-bold);
-            // display: none;
         }
     }
 
@@ -155,7 +154,6 @@
         flex: 1;
         color: var(--color-cart-modal-content-text);
         font-weight: var(--fw-bold);
-        // display: none;
     }
 
     &__cart-item {
@@ -204,7 +202,7 @@
 
             &:focus,
             &:focus-visible {
-                outline: 2px solid black;
+                outline: 2px solid var(--color-focus-outline);
             }
         }
 

@@ -28,8 +28,6 @@ body {
         @include a.flexbox($direction: column, $align: center, $gap: 0);
         overflow-x: hidden;
     }
-
-    // padding-block-end: a.rem(100);
 }
 
 h1 {
